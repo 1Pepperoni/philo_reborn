@@ -6,15 +6,21 @@
 /*   By: pory <pory@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:30:17 by ory               #+#    #+#             */
-/*   Updated: 2023/02/12 22:08:59 by pory             ###   ########.fr       */
+/*   Updated: 2023/02/15 12:57:05 by pory             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
+int	print_invalid_arg(void)
+{
+	printf("Error: Invalid argument\n");
+	return (1);
+}
+
 int	check_arg(int argc, char **argv)
 {
-	int			i;
+	int					i;
 	unsigned long int	nb;
 
 	if (!(argc == 5 || argc == 6))
@@ -28,19 +34,15 @@ int	check_arg(int argc, char **argv)
 		if (digit_check(argv[i]))
 			return (1);
 		nb = ft_atoi(argv[i]);
+		if (argc == 6 && ft_atoi(argv[5]) == 0)
+			return (print_invalid_arg());
 		if (i == 1 && (nb <= 0 || nb > 200))
-		{
-			printf("Error: Invalid argument\n");
-			return (1);
-		}
+			return (print_invalid_arg());
 		if (i != 1 && (nb < 0 || nb > 2147483647))
-		{
-			printf("Error: Invalid argument\n");
-			return (1);
-		}
+			return (print_invalid_arg());
 		i++;
 	}
-	return(0);
+	return (0);
 }
 
 int	digit_check(char *str)
@@ -62,9 +64,9 @@ int	digit_check(char *str)
 
 int	ft_atoi(const char *str)
 {
-	int			i;
+	int					i;
 	long long int		num;
-	int			neg;
+	int					neg;
 
 	i = 0;
 	num = 0;

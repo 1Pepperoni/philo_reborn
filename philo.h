@@ -6,7 +6,7 @@
 /*   By: pory <pory@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:12:18 by pory              #+#    #+#             */
-/*   Updated: 2023/02/15 11:15:41 by pory             ###   ########.fr       */
+/*   Updated: 2023/02/15 12:52:58 by pory             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,16 @@ int				ft_atoi(const char *str);
 int				ft_isdigit(int c);
 int				check_arg(int argc, char **argv);
 int				digit_check(char *str);
+
 int				ft_usleep(useconds_t usec, t_philo *philo);
 unsigned long	time_ms(void);
 void			print(char *str, unsigned long time, int id, t_philo *philo);
-int				check_everyone_ate(t_philo *philo);
 int				death_stop(t_philo *philo);
+
+void			*philo_checker(void *ph);
+int				check_everyone_ate(t_philo *philo);
+int				check_diff_die(t_philo *philo);
+void			eats(t_philo *ph, int next_id, int id);
+void			min_eats(t_philo *ph);
+void			last_meal(t_philo	*ph);
 #endif

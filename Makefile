@@ -3,7 +3,9 @@ NAME= philo
 
 SRC= philo.c\
 	utils.c\
-	parsing.c
+	parsing.c\
+	checker.c \
+	happymeal.c
 
 OBJ= ${SRC:%.c=%.o}
 
