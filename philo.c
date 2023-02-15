@@ -6,7 +6,7 @@
 /*   By: pory <pory@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:43:36 by ory               #+#    #+#             */
-/*   Updated: 2023/02/15 05:46:43 by pory             ###   ########.fr       */
+/*   Updated: 2023/02/15 08:17:09 by pory             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	*philo_checker(void *ph)
         pthread_mutex_lock(&philo[i].var->print);
 	    pthread_mutex_lock(&philo[i].var->m_everyone_ate);
 		//if (last_meal_time_calc(philo))
-        if ((int)time_ms() - (int)philo[i].last_meal >= (int)philo[i].var->time_to_die - triche)
+        if ((int)time_ms() - (int)philo[i].last_meal >= (int)philo[i].var->time_to_die)
 		{
                         //printf("aaaaaaaaaaaaaa\n");
 			philo[i].var->dead = 1;
@@ -116,8 +116,10 @@ void	*philo_checker(void *ph)
 			// 	printf("%lu ms %d is dead\n", time + 200, philo[i].id + 1);
 
 			time = time_ms() - philo[i].var->time_zero;
-			if (philo[i].var->time_to_sleep > philo[i].var->time_to_eat)
-				time = time - philo[i].var->time_to_eat;
+			//if (philo[i].var->time_to_sleep > philo[i].var->time_to_eat)
+			//	time = time - philo[i].var->time_to_eat;
+			/*if (philo[i].var->time_to_sleep > philo[i].var->time_to_eat)
+				time = time + philo[i].var->time_to_eat;*/
 			printf("%lu ms %d is dead\n", time, philo[i].id + 1);
                         // i = -1;
                         // while(++i < philo->var->number_of_philosophers)
@@ -175,7 +177,7 @@ void	*philo_routine(void *ph)
 
 	philo = (t_philo *)ph;
     if ((philo->id) % 2 == 1)
-        usleep(10000);
+        ft_usleep(100, philo);
 	//else if((philo->id) % 2 == 1)
 	//	usleep(5000);
 	//{
@@ -203,13 +205,13 @@ void	*philo_routine(void *ph)
 		pthread_mutex_lock(&philo->m_last_meal);
 		philo->nb_meal++;
 		pthread_mutex_unlock(&philo->m_last_meal);
-		usleep(philo->var->time_to_eat * 1000);
+		philo->last_meal = time_ms();
+		ft_usleep(philo->var->time_to_eat, philo);
 		pthread_mutex_unlock(&philo->var->fork[id]);
 		pthread_mutex_unlock(&philo->var->fork[next_id]);
 		//philo_sleep(philo->var->time_to_eat * 1000, philo);
 		//philo_sleep2(philo->var->time_to_eat * 1000);
 		pthread_mutex_lock(&philo->m_last_meal);
-		philo->last_meal = time_ms();
 		if ((int)philo->nb_meal == philo->var->must_eat)
 		{
 			pthread_mutex_lock(&philo->var->m_everyone_ate);
@@ -228,7 +230,7 @@ void	*philo_routine(void *ph)
 		// pthread_mutex_unlock(&philo->var->print);
 		pthread_mutex_unlock(&philo->m_last_meal);
 		print("is sleeping\n", time_ms() - philo->var->time_zero, philo->id + 1, philo);
-		usleep(philo->var->time_to_sleep * 1000);
+		ft_usleep(philo->var->time_to_sleep, philo);
 		//philo_sleep(philo->var->time_to_sleep * 1000, philo);
 		//philo_sleep2(philo->var->time_to_sleep * 1000);
 		// if (time_ms() - philo->last_meal < philo->var->time_to_eat)

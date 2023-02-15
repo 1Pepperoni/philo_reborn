@@ -6,7 +6,7 @@
 /*   By: pory <pory@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:12:18 by pory              #+#    #+#             */
-/*   Updated: 2023/02/15 01:11:11 by pory             ###   ########.fr       */
+/*   Updated: 2023/02/15 08:06:03 by pory             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ unsigned long int	time_ms(void);
 void	print(char *str, unsigned long time, int id, t_philo *philo);
 int	check_arg(int argc, char **argv);
 int	digit_check(char *str);
+int ft_usleep(useconds_t usec, t_philo *philo);
 
 
 

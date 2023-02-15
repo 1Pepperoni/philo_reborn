@@ -6,7 +6,7 @@
 /*   By: pory <pory@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:34:02 by ory               #+#    #+#             */
-/*   Updated: 2023/02/12 19:55:50 by pory             ###   ########.fr       */
+/*   Updated: 2023/02/15 08:05:57 by pory             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,23 @@ void	philo_sleep2(unsigned long time_to_sleep)
 	{
 		usleep(1);
 	}
+}
+
+int ft_usleep(useconds_t usec, t_philo *philo)
+{
+    useconds_t      start;
+    useconds_t      after;
+    start = time_ms();
+    after = start;
+    while (after - start < usec)
+    {
+		//pthread_mutex_lock(philo->var.)
+		if (death_stop(philo))
+			break ;
+        usleep(50);
+        after = time_ms();
+    }
+    return (0);
 }
 
 void	philo_sleep(unsigned long time_to_sleep, t_philo *philo)
