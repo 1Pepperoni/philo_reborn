@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ory <ory@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: pory <pory@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:34:02 by ory               #+#    #+#             */
-/*   Updated: 2023/02/11 02:00:49 by ory              ###   ########.fr       */
+/*   Updated: 2023/02/12 19:55:50 by pory             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,17 @@ int	death_stop(t_philo *philo)
 	return(0);
 }
 
-// void	philo_sleep2(unsigned long time_to_sleep)
-// {
-// 	unsigned long long end;
+void	philo_sleep2(unsigned long time_to_sleep)
+{
+	unsigned long long end;
 
-// 	//printf("wwwwwwwwwwwwwwwwwwwwwwwwwwwwww\n");
-// 	end = time_ms() + time_to_sleep;
-// 	while (time_ms() < end)
-// 	{
-// 		if (death_stop(philo))
-// 			break ;
-// 		usleep(1);
-// 	}
-// }
+	//printf("wwwwwwwwwwwwwwwwwwwwwwwwwwwwww\n");
+	end = time_ms() + time_to_sleep;
+	while (time_ms() < end)
+	{
+		usleep(1);
+	}
+}
 
 void	philo_sleep(unsigned long time_to_sleep, t_philo *philo)
 {

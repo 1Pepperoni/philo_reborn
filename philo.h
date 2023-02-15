@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ory <ory@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: pory <pory@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:12:18 by pory              #+#    #+#             */
-/*   Updated: 2023/02/11 00:59:06 by ory              ###   ########.fr       */
+/*   Updated: 2023/02/15 01:11:11 by pory             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@
 typedef struct	s_var
 {
 	int	number_of_philosophers;
-	unsigned int	time_to_die;
-	unsigned int	time_to_eat;
-	unsigned int	time_to_sleep;
-	unsigned long int	time_zero;
+	unsigned long	time_to_die;
+	unsigned long	time_to_eat;
+	unsigned long	time_to_sleep;
+	unsigned long	time_zero;
 	int					must_eat;
 	pthread_mutex_t		print;
 	pthread_mutex_t		m_dead;
@@ -40,7 +40,7 @@ typedef struct	s_philo
 	int		id;
 	int		nb_meal;
 	int		dead;
-	int		last_meal;
+	unsigned long		last_meal;
 	pthread_mutex_t	m_last_meal;
 	int		diff_time_meal;
 	t_var	*var;

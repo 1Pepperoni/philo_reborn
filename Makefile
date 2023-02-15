@@ -1,4 +1,4 @@
-CFLAGS=-Werror -Wextra -Wall -g -fsanitize=thread
+CFLAGS=-Werror -Wextra -Wall #-g -fsanitize=thread
 NAME= philo
 
 SRC= philo.c\

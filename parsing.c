@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ory <ory@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: pory <pory@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:30:17 by ory               #+#    #+#             */
-/*   Updated: 2023/02/10 16:32:42 by ory              ###   ########.fr       */
+/*   Updated: 2023/02/12 22:08:59 by pory             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	digit_check(char *str)
 	{
 		if (!(ft_isdigit(str[i])))
 		{
-			printf("Error: Not a digit argument\n");
+			printf("Error: Invalid argument\n");
 			return (1);
 		}
 		i++;
