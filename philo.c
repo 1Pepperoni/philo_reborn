@@ -6,7 +6,7 @@
 /*   By: pory <pory@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 16:43:36 by ory               #+#    #+#             */
-/*   Updated: 2023/02/15 12:58:03 by pory             ###   ########.fr       */
+/*   Updated: 2023/02/15 14:05:26 by pory             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,4 +105,5 @@ int	main(int argc, char **argv)
 	pthread_create(&checker, NULL, philo_checker, (void *)philo);
 	pthread_join(checker, NULL);
 	pthread_mutex_lock(&var.m_dead);
+	system("leaks philo");
 }

@@ -6,7 +6,7 @@
 /*   By: pory <pory@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 19:12:18 by pory              #+#    #+#             */
-/*   Updated: 2023/02/15 12:52:58 by pory             ###   ########.fr       */
+/*   Updated: 2023/02/15 16:19:49 by pory             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,8 @@ typedef struct s_philo
 {
 	int				id;
 	int				nb_meal;
-	int				dead;
 	unsigned long	last_meal;
 	pthread_mutex_t	m_last_meal;
-	int				diff_time_meal;
 	t_var			*var;
 }				t_philo;
 
